@@ -28,7 +28,7 @@ public class ParseTable {
                 try {
                     nonTerminals.put(i, NonTerminal.valueOf(temp));
                 } catch (Exception e) {
-                    ErrorHandler.printError(e.getMessage());
+                    temp = temp;
                 }
             } else {
                 terminals.put(i, new Token(Token.getTyepFormString(cols[i]), cols[i]));
@@ -81,3 +81,4 @@ public class ParseTable {
         return actionTable.get(currentState).get(terminal);
     }
 }
+
