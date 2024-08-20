@@ -1,5 +1,6 @@
 package graph;
 
+import lombok.Setter;
 import org.javatuples.Pair;
 
 import lombok.Getter;
@@ -8,11 +9,12 @@ public class Edge {
     @Getter
     private final Pair<Node, Node> nodes;
     @Getter
-    private final boolean directed;
+    @Setter
+    private boolean directed;
     @Getter
     private final int weight;
 
-    private Edge(Node a, Node b, boolean directed, int weight) {
+    protected Edge(Node a, Node b, boolean directed, int weight) {
         nodes = new Pair<Node, Node>(a, b);
         this.directed = directed;
         this.weight = weight;
@@ -24,4 +26,12 @@ public class Edge {
         b.getEdges().add(newEdge);
     }
 
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "nodes=" + nodes +
+                ", directed=" + directed +
+                ", weight=" + weight +
+                '}';
+    }
 }
