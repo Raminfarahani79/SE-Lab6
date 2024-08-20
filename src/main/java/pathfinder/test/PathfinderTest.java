@@ -45,4 +45,12 @@ class PathfinderTest {
         citySystem.makeRoutesOneWay();
         Assertions.assertEquals(1, finishNode.getAvailableNeighbors().size());
     }
+
+    @Test
+    @DisplayName("Governor should be able to make roads two-way")
+    void makeRoadsTwoWay() {
+        citySystem.makeRoutesOneWay();
+        citySystem.makeRoutesTwoWay();
+        Assertions.assertEquals(2, finishNode.getAvailableNeighbors().size());
+    }
 }

@@ -19,4 +19,9 @@ public class CitySystem {
         governor.setRouteState(new OneWayState());
         governor.updateRoutes(graph);
     }
+
+    public void makeRoutesTwoWay() {
+        governor.setRouteState(new TwoWayState());
+        governor.updateRoutes(graph);
+    }
 }
