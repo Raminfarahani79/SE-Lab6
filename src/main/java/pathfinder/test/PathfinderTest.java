@@ -65,4 +65,13 @@ class PathfinderTest {
     void calculateBusDistance(){
         Assertions.assertEquals(3, citySystem.calculateBusTime(startNode, finishNode));
     }
+
+
+    @Test
+    @DisplayName("Governor should be able to change trains unit time.")
+    void changeTrainTimeUnit(){
+        citySystem.changeTrainTime(3);
+        Assertions.assertEquals(6, citySystem.calculateTrainTime(startNode, finishNode));
+
+    }
 }

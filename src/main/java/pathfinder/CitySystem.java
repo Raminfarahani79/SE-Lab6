@@ -26,6 +26,10 @@ public class CitySystem {
         governor.updateRoutes(graph);
     }
 
+    public void changeTrainTime(int newTime) {
+        governor.changeTrainUnitTime(trainStrategy, newTime);
+    }
+
     public int calculateTrainTime(Node startCity, Node endCity) {
         return trainStrategy.calculateTime(graph, startCity, endCity);
     }

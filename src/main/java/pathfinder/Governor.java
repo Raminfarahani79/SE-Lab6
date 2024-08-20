@@ -12,4 +12,8 @@ public class Governor {
     public void updateRoutes(Graph graph) {
         routeState.setRoutes(graph);
     }
+
+    public void changeTrainUnitTime(TrainStrategy trainStrategy, int unitTime) {
+        trainStrategy.setUnitTime(unitTime);
+    }
 }
