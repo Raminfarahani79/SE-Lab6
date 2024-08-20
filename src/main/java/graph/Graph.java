@@ -1,6 +1,7 @@
 package graph;
 
 import lombok.Getter;
+import org.javatuples.Pair;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -29,7 +30,7 @@ public class Graph {
         while (!nodes.isEmpty()) {
             Pair<Node, Integer> front = nodes.poll();
             Node frontNode = front.getValue0();
-            if (!frontNode.isVisited()) {
+            if (!frontNode.isVisited() && !frontNode.isAvoid()) {
                 frontNode.setVisited(true);
                 int distance = front.getValue1();
                 frontNode.setDistance(distance);
@@ -49,7 +50,7 @@ public class Graph {
         while (!nodes.isEmpty()) {
             Pair<Integer, Node> front = nodes.poll();
             Node frontNode = front.getValue1();
-            if (!frontNode.isVisited()) {
+            if (!frontNode.isVisited() || !frontNode.isAvoid()) {
                 frontNode.setVisited(true);
                 int distance = front.getValue0();
                 frontNode.setDistance(distance);
