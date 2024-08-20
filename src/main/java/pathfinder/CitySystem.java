@@ -37,4 +37,12 @@ public class CitySystem {
     public int calculateBusTime(Node startCity, Node endCity) {
         return busStrategy.calculateTime(graph, startCity, endCity);
     }
+
+    public String getFastestTransport (Node startCity, Node endCity) {
+        int trainTime = trainStrategy.calculateTime(graph, startCity, endCity);
+        int busTime = busStrategy.calculateTime(graph, startCity, endCity);
+        if (trainTime < busTime) return "train";
+        if (trainTime > busTime) return "bus";
+        return "equal";
+    }
 }

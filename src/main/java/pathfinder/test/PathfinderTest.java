@@ -74,4 +74,24 @@ class PathfinderTest {
         Assertions.assertEquals(6, citySystem.calculateTrainTime(startNode, finishNode));
 
     }
+
+    @Test
+    @DisplayName("should find the fastest transport between cities")
+    void findFastestTransport() {
+        Assertions.assertEquals("train", citySystem.getFastestTransport(startNode, finishNode));
+    }
+
+    @Test
+    @DisplayName("should find the fastest transport between cities")
+    void findFastestTransport2() {
+        citySystem.makeRoutesOneWay();
+        Assertions.assertEquals("equal", citySystem.getFastestTransport(finishNode, startNode));
+    }
+
+    @Test
+    @DisplayName("should find the fastest transport between cities")
+    void findFastestTransport3() {
+        citySystem.changeTrainTime(20);
+        Assertions.assertEquals("bus", citySystem.getFastestTransport(finishNode, startNode));
+    }
 }
