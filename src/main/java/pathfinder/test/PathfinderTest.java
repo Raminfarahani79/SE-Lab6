@@ -53,4 +53,10 @@ class PathfinderTest {
         citySystem.makeRoutesTwoWay();
         Assertions.assertEquals(2, finishNode.getAvailableNeighbors().size());
     }
+
+    @Test
+    @DisplayName("Should calculate the distance with train correctly")
+    void calculateTrainDistance(){
+        Assertions.assertEquals(2, citySystem.calculateTrainTime(startNode, finishNode));
+    }
 }

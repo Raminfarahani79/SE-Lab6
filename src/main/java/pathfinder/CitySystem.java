@@ -1,6 +1,7 @@
 package pathfinder;
 
 import graph.Graph;
+import graph.Node;
 
 public class CitySystem {
     private final Graph graph;
@@ -23,5 +24,9 @@ public class CitySystem {
     public void makeRoutesTwoWay() {
         governor.setRouteState(new TwoWayState());
         governor.updateRoutes(graph);
+    }
+
+    public int calculateTrainTime(Node startCity, Node endCity) {
+        return trainStrategy.calculateTime(graph, startCity, endCity);
     }
 }
