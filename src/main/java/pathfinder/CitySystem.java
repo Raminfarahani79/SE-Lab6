@@ -29,4 +29,8 @@ public class CitySystem {
     public int calculateTrainTime(Node startCity, Node endCity) {
         return trainStrategy.calculateTime(graph, startCity, endCity);
     }
+
+    public int calculateBusTime(Node startCity, Node endCity) {
+        return busStrategy.calculateTime(graph, startCity, endCity);
+    }
 }

@@ -59,4 +59,10 @@ class PathfinderTest {
     void calculateTrainDistance(){
         Assertions.assertEquals(2, citySystem.calculateTrainTime(startNode, finishNode));
     }
+
+    @Test
+    @DisplayName("Should calculate the distance with bus correctly")
+    void calculateBusDistance(){
+        Assertions.assertEquals(3, citySystem.calculateBusTime(startNode, finishNode));
+    }
 }
