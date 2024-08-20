@@ -10,14 +10,22 @@ import lombok.Setter;
 
 @Data
 public class Node implements Comparable<Node> {
+
+    private static int counter = 1;
     private final ArrayList<Edge> edges;
     @Setter
     private boolean visited;
     @Setter
+    private boolean avoid;
+    @Setter
     private int distance;
+
+    private int index;
 
     public Node() {
         edges = new ArrayList<>();
+        index = counter;
+        counter ++;
     }
 
     public ArrayList<Pair<Node, Integer>> getAvailableWeightedNeighbors() {
@@ -42,5 +50,10 @@ public class Node implements Comparable<Node> {
     @Override
     public int compareTo(Node o) {
         return o.hashCode() - hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "" + index;
     }
 }

@@ -45,4 +45,11 @@ public class CitySystem {
         if (trainTime > busTime) return "bus";
         return "equal";
     }
+
+    public boolean canAvoidCity (Node startCity, Node endCity, Node avoidCity) {
+        avoidCity.setAvoid(true);
+        graph.bfs(startCity);
+        avoidCity.setAvoid(false);
+        return endCity.isVisited();
+    }
 }

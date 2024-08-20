@@ -94,4 +94,18 @@ class PathfinderTest {
         citySystem.changeTrainTime(20);
         Assertions.assertEquals("bus", citySystem.getFastestTransport(finishNode, startNode));
     }
+
+    @Test
+    @DisplayName("should be able to avoid city")
+    void avoidCity() {
+        citySystem.makeRoutesOneWay();
+        Assertions.assertEquals(false, citySystem.canAvoidCity(startNode, finishNode, nodeToBeAvoided));
+    }
+
+    @Test
+    @DisplayName("should be able to avoid city")
+    void avoidCity2() {
+        citySystem.makeRoutesOneWay();
+        Assertions.assertEquals(true, citySystem.canAvoidCity(nodeToBeAvoided, finishNode, startNode));
+    }
 }
